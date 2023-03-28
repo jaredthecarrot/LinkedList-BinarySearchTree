@@ -1,5 +1,5 @@
-#ifndef binaryst_h
-#define binaryst_h
+#ifndef bst_h
+#define bst_h
 #include <iostream>
 using std::cout;
 
@@ -7,7 +7,15 @@ class Node{
     public:
     int data;
     Node *left, *right;
+    Node();
 };
+
+Node::Node(){
+    data = -1;
+    left = nullptr;
+    right = nullptr;
+}
+
 class BST{
     private:
     int key;
@@ -19,9 +27,10 @@ class BST{
 };
 
 BST::BST(){key = -1;}
+
 Node* BST::insert(Node *root, int key){
 
-    if (root == NULL){
+    if (root == nullptr){
         root = new Node();
         root->data = key;
         return root;
@@ -36,7 +45,7 @@ Node* BST::insert(Node *root, int key){
 }
 
 void BST::inOrder(Node *node){
-    if (node == NULL)
+    if (node == nullptr)
         return;
     inOrder(node->left);
     cout << node->data << '\n';
